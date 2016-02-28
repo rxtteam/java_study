@@ -1,4 +1,4 @@
-package com.cmy.enumeration;
+package com.cmy.basic.enumeration;
 
 
 enum Color {

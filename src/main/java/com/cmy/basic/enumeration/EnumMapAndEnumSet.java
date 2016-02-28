@@ -1,4 +1,4 @@
-package com.cmy.enumeration;
+package com.cmy.basic.enumeration;
  
 import java.util.EnumMap;
 import java.util.EnumSet;
