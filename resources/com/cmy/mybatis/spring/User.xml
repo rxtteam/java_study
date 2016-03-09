@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="com.cmy.mybatis.spring.UserDaoMapper">
-    <select id="selectUserByID" parameterType="int" resultType="User">
-        select * from `user` where id = #{id}
+
+	<resultMap type="User" id="user">
+		<result property="id" column="id" />
+		<result property="userName" column="user_name" />
+		<result property="userAge" column="user_age" />
+		<result property="userAddress" column="user_address" />
+	</resultMap>
+	
+ 	<resultMap id="resultUserArticleList" type="Article">
+        <id property="id" column="aid" />
+        <result property="title" column="title" />
+        <result property="content" column="content" />        
+        <association property="user" javaType="User" resultMap="user" />             
+    </resultMap>
+	
+	<select id="selectUserByID" parameterType="int" resultMap="user">
+		select * from `user` where id = #{id}
+	</select>
+
+	<select id="getUserArticles" parameterType="int" resultMap="resultUserArticleList">
+       select user.id,user.user_name,user.user_address,article.id aid,article.title,article.content from user,article 
+              where user.id=article.userid and user.id=#{id}
     </select>
 </mapper>

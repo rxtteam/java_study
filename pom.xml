@@ -41,7 +41,7 @@
 		</dependency>
 
 		<dependency>
-			<!-- mybatis -->
+			<!-- mybatis spring dbcp -->
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
 			<version>3.2.8</version>
