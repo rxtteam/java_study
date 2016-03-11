@@ -5,6 +5,7 @@
     <typeAliases> 
         <typeAlias alias="User" type="com.cmy.mybatis.spring.User"/> 
         <typeAlias alias="Article" type="com.cmy.mybatis.spring.Article"/> 
+        <typeAlias alias="Group" type="com.cmy.mybatis.spring.Group"/>
     </typeAliases> 
 
 <!--
@@ -22,5 +23,6 @@
 -->
     <mappers>
         <mapper resource="com/cmy/mybatis/spring/User.xml"/>
+        <mapper resource="com/cmy/mybatis/spring/Group.xml"/>
     </mappers>
 </configuration>
