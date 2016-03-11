@@ -2,27 +2,25 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <typeAliases> 
-        <typeAlias alias="User" type="com.cmy.mybatis.spring.User"/> 
-        <typeAlias alias="Article" type="com.cmy.mybatis.spring.Article"/> 
-        <typeAlias alias="Group" type="com.cmy.mybatis.spring.Group"/>
-    </typeAliases> 
+	<settings>
+		<setting name="logImpl" value="LOG4J" />
+		<setting name="lazyLoadingEnabled" value="true" />
+		<setting name="aggressiveLazyLoading" value="false" />
+	</settings>
 
-<!--
-    <environments default="development">
-        <environment id="development">
-        <transactionManager type="JDBC"/>
-            <dataSource type="POOLED">
-            <property name="driver" value="com.mysql.jdbc.Driver"/>
-            <property name="url" value="jdbc:mysql://127.0.0.1:3306/test" />
-            <property name="username" value="root"/>
-            <property name="password" value="root"/>
-            </dataSource>
-        </environment>
-    </environments>
--->
-    <mappers>
-        <mapper resource="com/cmy/mybatis/spring/User.xml"/>
-        <mapper resource="com/cmy/mybatis/spring/Group.xml"/>
-    </mappers>
+	<typeAliases>
+		<typeAlias alias="User" type="com.cmy.mybatis.spring.User" />
+		<typeAlias alias="Article" type="com.cmy.mybatis.spring.Article" />
+		<typeAlias alias="Group" type="com.cmy.mybatis.spring.Group" />
+	</typeAliases>
+
+	<!-- <environments default="development"> <environment id="development"> 
+		<transactionManager type="JDBC"/> <dataSource type="POOLED"> <property name="driver" 
+		value="com.mysql.jdbc.Driver"/> <property name="url" value="jdbc:mysql://127.0.0.1:3306/test" 
+		/> <property name="username" value="root"/> <property name="password" value="root"/> 
+		</dataSource> </environment> </environments> -->
+	<mappers>
+		<mapper resource="com/cmy/mybatis/spring/User.xml" />
+		<mapper resource="com/cmy/mybatis/spring/Group.xml" />
+	</mappers>
 </configuration>

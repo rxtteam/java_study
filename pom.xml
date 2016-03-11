@@ -27,12 +27,12 @@
 			<artifactId>spring-context</artifactId>
 			<version>4.0.9.RELEASE</version>
 		</dependency>
-			<!-- spring + dbcp需要用到 -->
+		<!-- spring + dbcp需要用到 -->
 		<dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>4.0.6.RELEASE</version>
-        </dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>4.0.6.RELEASE</version>
+		</dependency>
 		<dependency>
 			<!-- aop -->
 			<groupId>org.aspectj</groupId>
@@ -60,6 +60,12 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.35</version>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
 		</dependency>
 	</dependencies>
 </project>
