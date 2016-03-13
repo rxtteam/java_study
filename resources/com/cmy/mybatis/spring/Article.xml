@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cmy.mybatis.spring.ArticleDaoMapper">
+	<resultMap type="Article" id="article">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="" column="createdate" />
+		<!--column="userid"不能少。此列的值作为参数传递给要引用的select语句.select属性指定要引用的select语句-->
+		<association property="user" javaType="User" column="userid" select="com.cmy.mybatis.spring.UserDaoMapper.selectUserByID" /> 
+	</resultMap>
+
+
+	<select id="getArticleById" parameterType="int" resultMap="article">
+		select id,title,content ,userid from article where id=#{id}
+	</select>
+</mapper>

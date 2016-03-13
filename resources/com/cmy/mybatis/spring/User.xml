@@ -10,7 +10,7 @@
 		<result property="userAddress" column="user_address" />
 	</resultMap>
 	
-	<!-- has a -->
+	<!-- has a 嵌套result map-->
  	<resultMap id="resultUserArticleList" type="Article">
         <id property="id" column="aid" />
         <result property="title" column="title" />

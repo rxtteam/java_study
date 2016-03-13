@@ -8,4 +8,7 @@
 		<result property="createdate" column="createdate" />
 	</resultMap>
 
+
+
+
 </mapper>

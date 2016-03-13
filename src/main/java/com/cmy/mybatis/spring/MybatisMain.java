@@ -31,13 +31,20 @@ public class MybatisMain {
         System.out.println(user.getUserAge()); 
         
         
-        //得到文章列表测试--has a
-        System.out.println("===============测试has one=======================");
+        //得到文章列表测试--has a,嵌套resulmap，是一次查询
+        System.out.println("===============测试has one,嵌套resul map=======================");
         List<Article> articles = mapper.getUserArticles(1);
-
         for(Article article:articles){
             System.out.println(article.getContent()+"--"+article.getTitle()+"--"+article.getUser().getUserName());
         }
+        
+        //得到文章列表测试--has a,嵌套select,在开启lazy load之后会多一次读取
+        System.out.println("===============测试has one,嵌套select=======================");
+        ArticleDaoMapper articleDaoMapper =  (ArticleDaoMapper)ctx.getBean("articleMapper");
+        Article a2 = articleDaoMapper.getArticleById(1);
+        System.out.println(a2.getId()+"--"+a2.getTitle()+"--"+a2.getContent());
+        System.out.println(a2.getUser().getId()+"--"+a2.getUser().getUserName());
+        
         
         //has many
         System.out.println("===============测试has many=======================");
