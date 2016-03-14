@@ -21,7 +21,7 @@ public class MybatisMain {
 
     public static void main(String[] args)  
     {  
-        UserDaoMapper mapper = (UserDaoMapper)ctx.getBean("userMapper"); 
+        UserDaoMapper mapper = (UserDaoMapper)ctx.getBean("userDaoMapper"); 
         //测试id=1的用户查询，根据数据库中的情况，可以改成你自己的.
         System.out.println("===============测试get =======================");
         System.out.println("得到用户id=1的用户信息");
@@ -40,7 +40,7 @@ public class MybatisMain {
         
         //得到文章列表测试--has a,嵌套select,在开启lazy load之后会多一次读取
         System.out.println("===============测试has one,嵌套select=======================");
-        ArticleDaoMapper articleDaoMapper =  (ArticleDaoMapper)ctx.getBean("articleMapper");
+        ArticleDaoMapper articleDaoMapper =  (ArticleDaoMapper)ctx.getBean("articleDaoMapper");
         Article a2 = articleDaoMapper.getArticleById(1);
         System.out.println(a2.getId()+"--"+a2.getTitle()+"--"+a2.getContent());
         System.out.println(a2.getUser().getId()+"--"+a2.getUser().getUserName());

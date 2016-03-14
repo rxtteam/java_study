@@ -20,25 +20,26 @@
 		<property name="configLocation" value="classpath:mybatis_spring/Configuration.xml" />
 	</bean>
 
-	<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<!--sqlSessionFactory属性指定要用到的SqlSessionFactory实例 -->
+<!--sqlSessionFactory属性指定要用到的SqlSessionFactory实例 -->
+<!--mapperInterface属性指定映射器接口，用于实现此接口并生成映射器对象 -->
+<!--  
+	<bean id="userDaoMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-		<!--mapperInterface属性指定映射器接口，用于实现此接口并生成映射器对象 -->
 		<property name="mapperInterface" value="com.cmy.mybatis.spring.UserDaoMapper" />
 	</bean>
 	
-	<bean id="groupMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<!--sqlSessionFactory属性指定要用到的SqlSessionFactory实例 -->
-		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-		<!--mapperInterface属性指定映射器接口，用于实现此接口并生成映射器对象 -->
+	<bean id="groupDaoMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />	
 		<property name="mapperInterface" value="com.cmy.mybatis.spring.GroupDaoMapper" />
 	</bean>
-	
-	<bean id="articleMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<!--sqlSessionFactory属性指定要用到的SqlSessionFactory实例 -->
+	<bean id="articleDaoMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-		<!--mapperInterface属性指定映射器接口，用于实现此接口并生成映射器对象 -->
 		<property name="mapperInterface" value="com.cmy.mybatis.spring.ArticleDaoMapper" />
 	</bean>
-	
+-->
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!--basePackage指定要扫描的包，在此包之下的映射器都会被搜索到。可指定多个包，包与包之间用逗号或分号分隔-->
+		<property name="basePackage" value="com.cmy.mybatis.spring"/>
+	</bean>
 </beans>
