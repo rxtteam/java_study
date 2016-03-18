@@ -27,10 +27,17 @@ public class MybatisMain {
 	public static void main(String[] args) {
         SqlSession session = sqlSessionFactory.openSession();
         try {
-            UserDaoMapper userOperation=session.getMapper(UserDaoMapper.class);
-            User user = userOperation.selectUserByID(1);
+        	// 通过xml配置文件
+            UserDaoMapper userDaoMapper=session.getMapper(UserDaoMapper.class);
+            User user = userDaoMapper.selectUserByID(1);
             System.out.println(user.getUserAddress());
             System.out.println(user.getUserName());
+            
+            // 另一种调用方式
+            User u1 = session.selectOne("com.cmy.mybatis.basic.UserDaoMapper.selectUserByID",1);
+            System.out.println(u1.getUserAddress());
+            System.out.println(u1.getUserName());  
+            
         } finally {
             session.close();
         }

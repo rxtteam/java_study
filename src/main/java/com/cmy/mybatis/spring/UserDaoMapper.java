@@ -9,4 +9,5 @@ public interface UserDaoMapper {
 	public User selectUserByID(int id);
 	public List<Article> getUserArticles(int id);
 	public List<User> selectUserGroup(int id);
+	public void insertUser(User user);
 }

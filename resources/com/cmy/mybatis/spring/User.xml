@@ -47,4 +47,8 @@
         left join group_info g on ug.group_id = g.id
         where u.id = #{id}  
     </select>  
+    
+    <insert id="insertUser" parameterType="user"  useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO user (user_name, user_age, user_address) VALUES (#{userName}, #{userAge},#{userAddress});
+    </insert>
 </mapper>
