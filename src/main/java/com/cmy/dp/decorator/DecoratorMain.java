@@ -18,6 +18,7 @@ public class DecoratorMain {
         decorator = new CompetitorDecoratorC(decorator);  
   
         decorator.sing();  
+        //最早装饰的类，最先发挥作用
   
         System.out.println("满场尖叫，满分通过！！！！！");  
   

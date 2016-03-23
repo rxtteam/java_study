@@ -1,4 +1,4 @@
-package com.cmy.mybatis.basic;
+ package com.cmy.mybatis.basic;
 
 import java.io.Reader;
 
@@ -34,6 +34,7 @@ public class MybatisMain {
             System.out.println(user.getUserName());
             
             // 另一种调用方式
+            // 这一步会用到一级缓存，是session级别的，所以没有数据库连接，直接从local缓存中取得数据
             User u1 = session.selectOne("com.cmy.mybatis.basic.UserDaoMapper.selectUserByID",1);
             System.out.println(u1.getUserAddress());
             System.out.println(u1.getUserName());  
