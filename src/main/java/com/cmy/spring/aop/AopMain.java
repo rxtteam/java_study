@@ -27,5 +27,10 @@ public class AopMain {
 		ArithmeticCalculatorImpl impl = new ArithmeticCalculatorImpl();
 		impl.add(1, 1);
 		impl.test();
+		
+		//使用类代理也可以
+		ArithmeticCalculatorImpl i1 = (ArithmeticCalculatorImpl)applicationContext.getBean(ArithmeticCalculatorImpl.class);
+		i1.add(66, 66);
+		i1.test();
 	}
 }
