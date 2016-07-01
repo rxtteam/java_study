@@ -39,7 +39,19 @@ public class MybatisMain {
             System.out.println(u1.getUserAddress());
             System.out.println(u1.getUserName());  
             
+            // 插入一条记录
+            User u2 = new User();
+            u2.setUserName("lixiaohua");
+            u2.setUserAge("11");
+            u2.setUserAddress("xxx");
+            
+            // 利用typehandler 自定义转换类型
+            Phone p = new Phone("86","021","1231414");
+            u2.setPhone(p);
+            session.insert("com.cmy.mybatis.basic.UserDaoMapper.insertUser", u2);
+            session.commit();
         } finally {
+        	
             session.close();
         }
     }

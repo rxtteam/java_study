@@ -6,8 +6,15 @@ public class User {
     private String userName;
     private String userAge;
     private String userAddress;
-
-    public int getId() {
+    private Phone phone;
+    
+    public Phone getPhone() {
+		return phone;
+	}
+	public void setPhone(Phone phone) {
+		this.phone = phone;
+	}
+	public int getId() {
         return id;
     }
     public void setId(int id) {

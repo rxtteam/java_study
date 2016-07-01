@@ -5,12 +5,18 @@
 <mapper namespace="com.cmy.mybatis.basic.UserDaoMapper">
 	<resultMap type="User" id="user">
 		<result property="id" column="id" />
-		<result property="userName" column="user_name" />
-		<result property="userAge" column="user_age" />
+		<result property="userName" column="user_name" jdbcType="VARCHAR" javaType="String"/>
+		<result property="userAge" column="user_age"  /> 
 		<result property="userAddress" column="user_address" />
+		<result property="phone" column="phone" />
 	</resultMap>
 
     <select id="selectUserByID" parameterType="int" resultMap="user">
         select * from `user` where id = #{id}
     </select>
+    
+    <insert id="insertUser" parameterType="user"  useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO user (user_name, user_age, user_address , phone) 
+    	VALUES (#{userName} , #{userAge} , #{userAddress} , #{phone});
+    </insert>
 </mapper>
