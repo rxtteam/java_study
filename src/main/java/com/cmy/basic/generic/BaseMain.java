@@ -38,10 +38,14 @@ public class BaseMain {
             Method method = clazz.getDeclaredMethod("applyCollection", Collection.class,List.class); //取得方法
             Type[] type = method.getGenericParameterTypes(); //取得泛型类型参数集
             ParameterizedType ptype = (ParameterizedType)type[0];//将其转成参数化类型,因为在方法中泛型是参数,且Number是第一个类型参数
-            type = ptype.getActualTypeArguments(); //取得参数的实际类型
-            System.out.println(type[0]); //取出第一个元素
+            Type[] typeReal = ptype.getActualTypeArguments(); //取得参数的实际类型
+            System.out.println(typeReal[0]); //取出第一个元素
 
-//            ParameterizedType ptype1 = (ParameterizedType)type[0];//将其转成参数化类型,因为在方法中泛型是参数,且Number是第一个类型参数
+            ParameterizedType ptype1 = (ParameterizedType)type[1];
+            Type[] typeReal1 = ptype1.getActualTypeArguments();
+            System.out.println(typeReal1[0]);
+//            System.out.println(type.length);
+//            ParameterizedType ptype1 = (Param eterizedType)type[0];//将其转成参数化类型,因为在方法中泛型是参数,且Number是第一个类型参数
 //            type = ptype1.getActualTypeArguments(); //取得参数的实际类型
 //            System.out.println(type[1]); //取出第一个元素
 //            
